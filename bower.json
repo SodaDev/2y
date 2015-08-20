@@ -1,0 +1,9 @@
+{
+  "name": "y2-studio-web",
+  "description": "y2 studio project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "angularjs": "~1.4.4",
+    "angular-ui-router": "~0.2.15"
+  }
+}
