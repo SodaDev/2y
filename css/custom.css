@@ -1,21 +1,31 @@
+@font-face {
+    font-family: Muli;
+    src: url(muli.woff2);
+}
+
 html {
     position: relative;
     min-height: 100%;
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 150px;
+    margin-bottom: 125px;
     background-color: #E5E2E4;
     color: #4A4448;
     font-family: 'Muli',sans-serif;
     /*font-family: 'Didact Gothic', sans-serif;*/
 }
 
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 150px;
+    height: 125px;
     background-color: #E5E2E4;
 }
 
@@ -31,8 +41,16 @@ body > .container {
     padding-left: 0px;
 }
 
-.logo {
-    font-size: 2vw;
+.logo-text {
+    font-size: 14pt;
+}
+
+.contact-text{
+    font-size: 13pt;
+}
+
+.studio-text{
+    font-size: 12pt;
 }
 
 .img-logo {
@@ -50,7 +68,6 @@ body > .container {
 
 .nav-tabs, .nav-pills {
     text-align:center;
-    font-size: 1.5vw;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -84,18 +101,74 @@ body > .container {
     margin-bottom: 10px;
 }
 
-@media (min-width: 768px){
-    /*.footer {*/
-        /*width: 75%;*/
-        /*right: 0;*/
-    /*}*/
+.muted-link,
+.muted-link:focus,
+.muted-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
 
+.mb-small {
+    margin-bottom: 1.75em;
+}
+
+.mb-medium {
+    margin-bottom: 2em;
+}
+
+.mb-big {
+    margin-bottom: 3.5em;
+}
+
+.work-img {
+    width:100%;
+}
+
+.about-img {
+    margin-top: 2em;
+    opacity:0.8;
+}
+
+.col-narrow {
+    width:60%;
+}
+
+.about {
+    font-size: 12pt;
+    text-rendering: geometricPrecision;
+    text-align: justify;
+}
+
+.about-footer {
+
+}
+
+@media (min-width: 768px){
+    body > .container {
+        padding: 30px 15px 30px;
+    }
+
+    .img-logo{
+        padding-bottom: 25px;
+    }
+
+    .about-img {
+        position: inherit;
+    }
+}
+
+@media (min-width: 1200px){
     .footer > .container-fluid {
-        width: 75%;
+        width: 85%;
         margin-right: 0;
     }
 
     .nav-tabs, .nav-pills {
         text-align: left;
+    }
+
+    .about-img {
+        left: 0;
+        position: absolute;
     }
 }

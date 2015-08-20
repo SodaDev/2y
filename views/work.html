@@ -1,8 +1,11 @@
 <div class="row">
-    <p>work</p>
-    <p>https://maxklenk.github.io/angular-circular-navigation/</p>
-
-
-
-    <a href="mailto:me@example.com?cc=myCCaddress@example.com&subject='someSubject'&body='some body body'">MAIL ME</a>
+    <!--<p>https://maxklenk.github.io/angular-circular-navigation/</p>-->
 </div>
+<div class="row" ng-controller="WorkController as vm">
+    <picture ng-repeat="design in vm.designs" class="img-responsive">
+        <source media="(min-width: 1200px)" ng-srcset="{{design.big}}">
+        <img ng-src="{{design.small}}" alt="{{design.alt}}" class="work-img">
+    </picture>
+</div>
+
+<y2-footer></y2-footer>
