@@ -133,6 +133,11 @@ body > .container {
     width:60%;
 }
 
+.col-tight {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .about {
     font-size: 12pt;
     text-rendering: geometricPrecision;
@@ -167,8 +172,31 @@ body > .container {
         text-align: left;
     }
 
+    .about {
+        font-size: 9pt;
+    }
+
+    .about-logo {
+        display: none;
+    }
+
     .about-img {
         left: 0;
-        position: absolute;
+        bottom:0;
+        position: fixed;
+        opacity: 1;
+    }
+
+    .about-footer > footer {
+        background-color: transparent;
+    }
+
+    .about-footer > footer > .container-fluid {
+        width: 50%;
+    }
+
+    .col-narrow {
+        margin-top: 50%;
+        width: 90%;
     }
 }
