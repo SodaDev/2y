@@ -1,11 +1,34 @@
-<div class="row">
-    <!--<p>https://maxklenk.github.io/angular-circular-navigation/</p>-->
-</div>
 <div class="row" ng-controller="WorkController as vm">
-    <picture ng-repeat="design in vm.designs" class="img-responsive">
-        <source media="(min-width: 1200px)" ng-srcset="{{design.big}}">
-        <img ng-src="{{design.small}}" alt="{{design.alt}}" class="work-img">
-    </picture>
+    <div ng-repeat="design in ::vm.designs" class="design" ng-click="vm.pickDesign(design)">
+        <div ng-if="design == vm.picked" class="picked-design-overlay">
+            <div class="col-xs-6 col-xs-offset-3">
+                <ul class="list-unstyled studio-text list-spacious">
+                    <li><a href="https://www.facebook.com/2Ygraphicdesign" class="text-muted muted-link" target="_blank">facebook</a></li>
+                    <li><a href="https://www.behance.net/2y_studio" class="text-muted muted-link" target="_blank">behance</a></li>
+                    <li><a href="http://2ystudio.tumblr.com/" class="text-muted muted-link" target="_blank">tumblr</a></li>
+                </ul>
+            </div>
+            <!--<div class="col-xs-6 col-xs-offset-3">-->
+                <!--<div class="col-xs-6">-->
+                    <!--<a href="https://pinterest.com/pin/create/button/?url={{design.url}}&media={{design.fileUrl}}">-->
+                        <!--<img src="img/pinterest.png" alt="Pin it!">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6">-->
+                    <!--<img src="img/tumblr.png" alt="Tumblr link">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">c</div>-->
+            <!--<a href="https://pinterest.com/pin/create/button/?url={{design.url}}&media={{design.fileUrl}}">-->
+                <!--<img src="img/behance.png" alt="Pin it!">-->
+            <!--</a>-->
+        </div>
+
+        <picture class="img-responsive" ng-class="{'picked-design': design == vm.picked}">
+            <source media="(min-width: 1200px)" ng-srcset="{{design.big}}">
+            <img ng-src="{{design.small}}" alt="{{design.alt}}" class="work-img img-responsive">
+        </picture>
+    </div>
 </div>
 
 <y2-footer></y2-footer>

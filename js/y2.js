@@ -28,11 +28,23 @@ App.controller('WorkController', ['$scope', function($scope){
     vm.designs = [];
 
     var addDesign = function(name){
+        var basePath = 'http://2ystudio.eu/';
+        var smallUrl = 'img/750/' + name + '.png';
+        var bigUrl = 'img/1200/' + name + '.png';
         vm.designs.push({
             alt: name,
-            small: 'img/750/' + name + '.png',
-            big: 'img/1200/' + name + '.png'
+            small: smallUrl,
+            big: bigUrl,
+            url: basePath + 'work/',
+            fileUrl: basePath + bigUrl
         })
+    };
+
+    vm.pickDesign = function(design){
+        if(vm.picked == design) {
+            design = null;
+        }
+        vm.picked = design;
     };
 
     addDesign('brod');
