@@ -23,20 +23,16 @@ App.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
-App.controller('WorkController', ['$scope', function($scope){
+App.controller('WorkController', ['$scope', '$timeout', function($scope, $timeout){
     var vm = this;
     vm.designs = [];
 
-    var addDesign = function(name){
-        var basePath = 'http://2ystudio.eu/';
-        var smallUrl = 'img/750/' + name + '.png';
-        var bigUrl = 'img/1200/' + name + '.png';
+    var addDesign = function(name, fullProjectUrl){
         vm.designs.push({
             alt: name,
-            small: smallUrl,
-            big: bigUrl,
-            url: basePath + 'work/',
-            fileUrl: basePath + bigUrl
+            small: 'img/750/' + name + '.png',
+            big: 'img/1200/' + name + '.png',
+            fullProjectUrl: fullProjectUrl
         })
     };
 
@@ -47,14 +43,25 @@ App.controller('WorkController', ['$scope', function($scope){
         vm.picked = design;
     };
 
-    addDesign('brod');
-    addDesign('biscuit');
-    addDesign('architecture');
-    addDesign('jorn');
-    addDesign('carpenter');
-    addDesign('biotanical');
-    addDesign('dorteRask');
-    addDesign('czarnaKawka');
+    addDesign('brod', 'https://www.behance.net/gallery/19665489/branding-broed');
+    addDesign('biscuit', 'https://www.behance.net/gallery/24550411/rebranding-webdesign-biscuit-projekt');
+    addDesign('architecture', 'https://www.behance.net/gallery/24560663/visual-identity-physiotherapist');
+    addDesign('jorn', 'https://www.behance.net/gallery/24852767/JORN-visual-identity');
+    addDesign('carpenter', 'https://www.behance.net/gallery/24447469/visual-identity-carpenter');
+    addDesign('biotanical', 'https://www.behance.net/gallery/26065139/-B-I-O-T-A-N-I-C-A-L');
+    addDesign('dorteRask', 'https://www.behance.net/gallery/24583411/branding-makeup-artist');
+    addDesign('czarnaKawka', 'https://www.behance.net/gallery/19665803/branding-czarna-kawka');
+
+    $timeout(function(){
+        picturefill();
+    }, 0);
+}]);
+
+App.controller('AboutController', ['$timeout', function($timeout){
+    var vm = this;
+    $timeout(function(){
+        picturefill();
+    }, 0);
 }]);
 
 App.directive('y2Logo', function(){

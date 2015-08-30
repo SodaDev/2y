@@ -8,12 +8,10 @@ html {
     min-height: 100%;
 }
 body {
-    /* Margin bottom by footer height */
     margin-bottom: 125px;
     background-color: #E5E2E4;
     color: #4A4448;
     font-family: 'Muli',sans-serif;
-    /*font-family: 'Didact Gothic', sans-serif;*/
 }
 
 .container-fluid {
@@ -59,8 +57,9 @@ body > .container {
 }
 
 .img-logo {
-    max-height: 10%;
-    max-width: 10%;
+    max-height: 100%;
+    max-width: 100%;
+    width: 90px;
     padding-bottom: 35px;
 }
 
@@ -80,15 +79,12 @@ body > .container {
 }
 
 .nav a{
-    /*color: inherit;*/
     color: rgba(1, 1, 1, 0.52);
     background: none;
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     color: rgb(74, 68, 72);
-    /*text-decoration: underline;*/
-    /*background-color: #4A4448;*/
     background-color: transparent;
 }
 
@@ -135,9 +131,14 @@ body > .container {
     margin: 0 auto;
 }
 
-.about-img {
+.about-img-section {
     margin-top: 2em;
     opacity:0.8;
+}
+
+.about-img {
+    margin: 0 auto;
+    max-height: 100vh;
 }
 
 .col-narrow {
@@ -169,6 +170,9 @@ body > .container {
     width: 100%;
     z-index: 99;
     top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     float: none;
     vertical-align: middle;
 }
@@ -182,18 +186,45 @@ body > .container {
     position: relative;
 }
 
-
 .full-height {
     height: 100%;
 }
 
+.circle-wrap {
+    display: inline-block;
+}
+
+.circle-wrap a {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    text-align:center;
+    font-size: 2.5vw;
+    line-height:0;
+    position:relative;
+    background: #DCDADB;
+    color: white;
+    display:table;
+}
+.circle-wrap a:hover {
+    background: #ddd;
+    text-decoration: none;
+}
+.circle-wrap a div {
+    display:table-cell;
+    vertical-align:middle;
+    width:100%;
+}
+.circle-wrap a div span {
+    display:block;
+    /*margin:50px;*/
+}
+
+
+
 @media (min-width: 768px){
     body > .container {
         padding: 30px 15px 30px;
-    }
-
-    .img-logo{
-        padding-bottom: 25px;
     }
 
     .about-img {
@@ -212,19 +243,27 @@ body > .container {
     }
 
     .about {
-        font-size: 9pt;
+        font-size: 10pt;
+    }
+
+    .img-logo {
+        width: 120px;
     }
 
     .about-logo {
         display: none;
     }
 
-    .about-img {
+    .about-img-section {
         left: 0;
         bottom:0;
-        position: absolute;
+        position: fixed;
         max-height: 100vh;
         opacity: 1;
+    }
+
+    .about-img {
+        display: inline-block;
     }
 
     .about-footer > footer {
@@ -236,12 +275,19 @@ body > .container {
     }
 
     .col-narrow {
-        /*margin-top: 50%;*/
         width: 90%;
     }
 
     .about-text {
         bottom: 150px;
         position: absolute;
+    }
+}
+
+@media (max-height: 450px){
+
+    .about-text {
+        bottom: 0px;
+        position: relative;
     }
 }

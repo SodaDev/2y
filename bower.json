@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "devDependencies": {
     "angularjs": "~1.4.4",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~1.11.3",
+    "picturefill": "~2.3.1"
   }
 }
