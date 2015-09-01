@@ -1,6 +1,16 @@
-var App = angular.module('y2Studio', ['ui.router']);
+var y2App = angular.module('y2Studio', ['ui.router']);
 
-App.config(function($stateProvider, $urlRouterProvider) {
+y2App.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
+    $rootScope.$on('$stateChangeSuccess', function (event) {
+        if (!$window.ga)
+            return;
+
+        console.log('ga!');
+        $window.ga('send', 'pageview', {page: $location.path()});
+    });
+}]);
+
+y2App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/");
 
@@ -21,9 +31,9 @@ App.config(function($stateProvider, $urlRouterProvider) {
             url: "/contact",
             templateUrl: "views/contact.html"
         });
-});
+}]);
 
-App.controller('WorkController', ['$scope', '$timeout', function($scope, $timeout){
+y2App.controller('WorkController', ['$scope', '$timeout', function($scope, $timeout){
     var vm = this;
     vm.designs = [];
 
@@ -57,14 +67,14 @@ App.controller('WorkController', ['$scope', '$timeout', function($scope, $timeou
     }, 0);
 }]);
 
-App.controller('AboutController', ['$timeout', function($timeout){
+y2App.controller('AboutController', ['$timeout', function($timeout){
     var vm = this;
     $timeout(function(){
         picturefill();
     }, 0);
 }]);
 
-App.directive('y2Logo', function(){
+y2App.directive('y2Logo', function(){
     return {
         restrict: 'E',
         template: '<div class="row" style="margin-top: 50px">' +
@@ -74,7 +84,7 @@ App.directive('y2Logo', function(){
     }
 });
 
-App.directive('y2Footer', function(){
+y2App.directive('y2Footer', function(){
     return {
         restrict: 'E',
         templateUrl: 'views/footer.html'
