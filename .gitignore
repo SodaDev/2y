@@ -47,4 +47,6 @@ crashlytics.properties
 crashlytics-build.properties
 
 /bower_components
+/img/postMini
+/img/preMini
     # Created by .ignore support plugin (hsz.mobi)
