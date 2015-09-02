@@ -222,8 +222,6 @@ body > .container {
     font-size: 9pt;
 }
 
-
-
 @media (min-width: 768px){
     body > .container {
         padding: 30px 15px 30px;

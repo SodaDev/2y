@@ -5,7 +5,6 @@ y2App.run(['$rootScope', '$location', '$window', function ($rootScope, $location
         if (!$window.ga)
             return;
 
-        console.log('ga!');
         $window.ga('send', 'pageview', {page: $location.path()});
     });
 }]);
@@ -33,17 +32,26 @@ y2App.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
         });
 }]);
 
-y2App.controller('WorkController', ['$scope', '$timeout', function($scope, $timeout){
+y2App.controller('WorkController', ['$scope', '$window', function($scope, $window){
     var vm = this;
     vm.designs = [];
+    vm.smallDesigns = [];
+    vm.bigDesigns = [];
 
-    var addDesign = function(name, fullProjectUrl){
-        vm.designs.push({
+
+    vm.createDesign = function(name, imgUrl, fullProjectUrl){
+        return {
             alt: name,
-            small: 'img/750/' + name + '.png',
-            big: 'img/1200/' + name + '.png',
+            imgUrl: imgUrl,
             fullProjectUrl: fullProjectUrl
-        })
+        };
+    };
+
+    var addDesign = function(name, fullProjectUrl, singleImage){
+        vm.smallDesigns.push(vm.createDesign(name, 'img/750/' + name + '.png', fullProjectUrl));
+        vm.bigDesigns.push(vm.createDesign(name, 'img/1200/' + name + '_1.png', fullProjectUrl));
+        if(!singleImage)
+            vm.bigDesigns.push(vm.createDesign(name, 'img/1200/' + name + '_2.png', fullProjectUrl));
     };
 
     vm.pickDesign = function(design){
@@ -55,20 +63,32 @@ y2App.controller('WorkController', ['$scope', '$timeout', function($scope, $time
 
     addDesign('brod', 'https://www.behance.net/gallery/19665489/branding-broed');
     addDesign('biscuit', 'https://www.behance.net/gallery/24550411/rebranding-webdesign-biscuit-projekt');
-    addDesign('architecture', 'https://www.behance.net/gallery/24550411/rebranding-webdesign-biscuit-projekt');
     addDesign('jorn', 'https://www.behance.net/gallery/24852767/JORN-visual-identity');
     addDesign('carpenter', 'https://www.behance.net/gallery/24447469/visual-identity-carpenter');
     addDesign('biotanical', 'https://www.behance.net/gallery/26065139/-B-I-O-T-A-N-I-C-A-L');
     addDesign('dorteRask', 'https://www.behance.net/gallery/24583411/branding-makeup-artist');
-    addDesign('czarnaKawka', 'https://www.behance.net/gallery/19665803/branding-czarna-kawka');
+    addDesign('czarnaKawka', 'https://www.behance.net/gallery/19665803/branding-czarna-kawka', true);
 
-    $timeout(function(){
-        picturefill();
-    }, 0);
+    vm.pickDesignSet = function(){
+        if($window.innerWidth < 768){
+            vm.designs = vm.smallDesigns;
+        } else {
+            vm.designs = vm.bigDesigns;
+        }
+    };
+
+    angular.element($window).bind('resize', function (evt) {
+        $scope.$apply(function(){
+            vm.pickDesignSet();
+        });
+    });
+
+    vm.pickDesignSet();
 }]);
 
 y2App.controller('AboutController', ['$timeout', function($timeout){
     var vm = this;
+
     $timeout(function(){
         picturefill();
     }, 0);

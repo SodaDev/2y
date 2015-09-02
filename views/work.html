@@ -1,19 +1,19 @@
 <div class="row" ng-controller="WorkController as vm">
-    <div ng-repeat="design in ::vm.designs" class="design" ng-click="vm.pickDesign(design)">
-        <div ng-if="design == vm.picked" class="picked-design-overlay">
-            <div class="circle-wrap">
-                <a ng-href="{{design.fullProjectUrl}}" target="_blank">
-                    <div>
-                        <span>view full project</span>
-                    </div>
-                </a>
+    <div ng-repeat="design in vm.designs">
+        <div class="design"  ng-click="vm.pickDesign(design)">
+            <div ng-if="design == vm.picked" class="picked-design-overlay">
+                <div class="circle-wrap">
+                    <a ng-href="{{design.fullProjectUrl}}" target="_blank">
+                        <div>
+                            <span>view full project</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div ng-class="{'picked-design': design == vm.picked}">
+                <img ng-src="{{design.imgUrl}}" alt="{{design.alt}}" class="work-img img-responsive">
             </div>
         </div>
-
-        <picture class="img-responsive" ng-class="{'picked-design': design == vm.picked}">
-            <source media="(min-width: 750px)" ng-srcset="{{design.big}}">
-            <img ng-srcset="{{design.small}}" alt="{{design.alt}}" class="work-img img-responsive" ng-init="picturefill()">
-        </picture>
     </div>
 </div>
 <y2-footer></y2-footer>
