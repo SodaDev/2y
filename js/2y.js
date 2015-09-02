@@ -55,7 +55,7 @@ y2App.controller('WorkController', ['$scope', '$timeout', function($scope, $time
 
     addDesign('brod', 'https://www.behance.net/gallery/19665489/branding-broed');
     addDesign('biscuit', 'https://www.behance.net/gallery/24550411/rebranding-webdesign-biscuit-projekt');
-    addDesign('architecture', 'https://www.behance.net/gallery/24560663/visual-identity-physiotherapist');
+    addDesign('architecture', 'https://www.behance.net/gallery/24550411/rebranding-webdesign-biscuit-projekt');
     addDesign('jorn', 'https://www.behance.net/gallery/24852767/JORN-visual-identity');
     addDesign('carpenter', 'https://www.behance.net/gallery/24447469/visual-identity-carpenter');
     addDesign('biotanical', 'https://www.behance.net/gallery/26065139/-B-I-O-T-A-N-I-C-A-L');
