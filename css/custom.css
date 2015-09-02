@@ -133,16 +133,14 @@ body > .container {
 
 .about-img-section {
     margin-top: 2em;
-    opacity:0.8;
 }
 
 .about-img {
     margin: 0 auto;
-    max-height: 100vh;
 }
 
 .col-narrow {
-    width:60%;
+    width:85%;
 }
 
 .col-tight {
@@ -195,11 +193,11 @@ body > .container {
 }
 
 .circle-wrap a {
-    width: 25vw;
-    height: 25vw;
+    width: 15vw;
+    height: 15vw;
     border-radius: 50%;
     text-align:center;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     line-height:0;
     position:relative;
     background: #DCDADB;
@@ -217,7 +215,11 @@ body > .container {
 }
 .circle-wrap a div span {
     display:block;
-    /*margin:50px;*/
+    color: #4a4448;
+}
+
+.about-text, .studio-text {
+    font-size: 9pt;
 }
 
 
@@ -227,8 +229,18 @@ body > .container {
         padding: 30px 15px 30px;
     }
 
+    .about-text, .studio-text {
+        font-size: 11pt;
+    }
+
     .about-img {
         position: inherit;
+        height: auto;
+        width: 100%;
+    }
+
+    .col-narrow {
+        width: 75%;
     }
 }
 
@@ -243,7 +255,7 @@ body > .container {
     }
 
     .about {
-        font-size: 10pt;
+        font-size: 11pt;
     }
 
     .img-logo {
@@ -264,6 +276,8 @@ body > .container {
 
     .about-img {
         display: inline-block;
+        max-height: 100vh;
+        width: auto;
     }
 
     .about-footer > footer {
@@ -271,23 +285,43 @@ body > .container {
     }
 
     .about-footer > footer > .container-fluid {
-        width: 50%;
+        width: 100%;
+        position: relative;
+        left: 650px;
     }
 
     .col-narrow {
         width: 90%;
+        padding-right: 2em;
     }
 
     .about-text {
         bottom: 150px;
         position: absolute;
     }
+
+    .work-img {
+        width: initial;
+    }
 }
 
-@media (max-height: 450px){
+@media (max-height: 650px) and (min-width: 1200px){
+
+    .about-img {
+        max-height: 100vh;
+        width: auto;
+    }
 
     .about-text {
         bottom: 0px;
         position: relative;
+        height: 40em;
+    }
+}
+
+@media (max-height: 793px) and (min-width: 1200px) {
+
+    .about-footer > footer > .container-fluid {
+        left: 80vh;
     }
 }

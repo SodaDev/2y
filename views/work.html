@@ -4,14 +4,14 @@
             <div class="circle-wrap">
                 <a ng-href="{{design.fullProjectUrl}}" target="_blank">
                     <div>
-                        <span>View full project</span>
+                        <span>view full project</span>
                     </div>
                 </a>
             </div>
         </div>
 
         <picture class="img-responsive" ng-class="{'picked-design': design == vm.picked}">
-            <source media="(min-width: 1200px)" ng-srcset="{{design.big}}">
+            <source media="(min-width: 750px)" ng-srcset="{{design.big}}">
             <img ng-srcset="{{design.small}}" alt="{{design.alt}}" class="work-img img-responsive" ng-init="picturefill()">
         </picture>
     </div>
