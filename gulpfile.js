@@ -40,7 +40,7 @@ gulp.task('minifyCss', ['clean', 'copyFonts'], function(){
 gulp.task('concatJs', ['minifyJs'], function(){
     return gulp.src(['js/angular.min.js',
                      'js/angular-ui-router.min.js',
-                     'js/picturefill.min.js',
+                     //'js/picturefill.min.js',
                      buildFolder + '/**/*.js'])
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest(distFolder));

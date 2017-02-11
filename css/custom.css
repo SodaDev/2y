@@ -44,8 +44,16 @@ body > .container {
     padding-left: 0px;
 }
 
+.img-logo {
+    max-height: 100%;
+    max-width: 100%;
+    padding-bottom: 20px;
+    width: 70px;
+}
+
 .logo-text {
-    font-size: 14pt;
+    font-size: 15px;
+    margin-bottom: 15px;
 }
 
 .contact-text{
@@ -54,13 +62,6 @@ body > .container {
 
 .studio-text{
     font-size: 12pt;
-}
-
-.img-logo {
-    max-height: 100%;
-    max-width: 100%;
-    width: 90px;
-    padding-bottom: 35px;
 }
 
 .nav-pills > li {
@@ -232,9 +233,7 @@ body > .container {
     }
 
     .about-img {
-        position: inherit;
         height: auto;
-        width: 100%;
     }
 
     .col-narrow {
@@ -254,10 +253,6 @@ body > .container {
 
     .about {
         font-size: 11pt;
-    }
-
-    .img-logo {
-        width: 120px;
     }
 
     .about-logo {
@@ -321,5 +316,15 @@ body > .container {
 
     .about-footer > footer > .container-fluid {
         left: 80vh;
+    }
+}
+
+@media (max-height: 650px) {
+    .body {
+        margin-bottom: 75px;
+    }
+
+    .footer {
+        height: 75px;
     }
 }

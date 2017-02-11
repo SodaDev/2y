@@ -86,19 +86,32 @@ y2App.controller('WorkController', ['$scope', '$window', function($scope, $windo
     vm.pickDesignSet();
 }]);
 
-y2App.controller('AboutController', ['$timeout', function($timeout){
+y2App.controller('AboutController', ['$scope', '$window', function($scope, $window){
     var vm = this;
+    vm.aboutImg = null;
 
-    $timeout(function(){
-        picturefill();
-    }, 0);
+    vm.pickAboutImg = function(){
+        if($window.innerWidth < 1200){
+            vm.aboutImg = 'img/750/we.png';
+        } else {
+            vm.aboutImg = 'img/1200/we.png';
+        }
+    };
+
+    angular.element($window).bind('resize', function (evt) {
+        $scope.$apply(function(){
+            vm.pickAboutImg();
+        });
+    });
+
+    vm.pickAboutImg();
 }]);
 
 y2App.directive('y2Logo', function(){
     return {
         restrict: 'E',
         template: '<div class="row" style="margin-top: 50px">' +
-                  ' <img src="img/logo.png" class="img-responsive center-block img-logo" alt="2Y Logo">' +
+                  ' <img src="img/BANER.svg" class="img-responsive center-block img-logo" alt="2Y Logo">' +
                   '     <div class="logo-text text-center"> <p>2Y GRAPHIC DESIGN STUDIO</p> </div>' +
                   '</div>'
     }
